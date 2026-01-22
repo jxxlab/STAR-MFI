@@ -1,0 +1,106 @@
+options(repr.plot.width=18, repr.plot.height=16)
+DimPlot(pbmc,label = T,label.size = 8, group.by = c("assignment"),split.by=c('sample'),ncol=5,raster=FALSE)& theme(axis.text=element_blank(),axis.ticks=element_blank(),legend.key.height=unit(0.4,"inch"),legend.text=element_text(size=20,face="plain"),text=element_text(size=20,face="plain"),strip.text=element_text(size=20,face="bold"))
+
+pbmc33=pbmc
+Idents(pbmc)='sample'
+table(pbmc$assignment)
+table(pbmc$status)
+table(pbmc$assignment,pbmc$status)
+
+pbmcx=subset(pbmc,idents=c("GD8-1"))
+Idents(pbmcx)="assignment"
+maternal1=WhichCells(pbmcx,idents =0)
+pbmcx=subset(pbmc,idents=c("GD8-2"))
+Idents(pbmcx)="assignment"
+maternal2=WhichCells(pbmcx,idents =1)
+Idents(pbmc)="sample"
+pbmcx=subset(pbmc,idents=c("GD9-1"))
+Idents(pbmcx)="assignment"
+maternal3=WhichCells(pbmcx,idents =0)
+Idents(pbmc)="sample"
+pbmcx=subset(pbmc,idents=c("GD9-2"))
+Idents(pbmcx)="assignment"
+maternal4=WhichCells(pbmcx,idents =1)
+pbmcx=subset(pbmc,idents=c("GD10-1"))
+Idents(pbmcx)="assignment"
+maternal5=WhichCells(pbmcx,idents =0)
+pbmcx=subset(pbmc,idents=c("GD10-2"))
+Idents(pbmcx)="assignment"
+maternal6=WhichCells(pbmcx,idents =1)
+pbmcx=subset(pbmc,idents=c("GD11-1"))
+Idents(pbmcx)="assignment"
+maternal7=WhichCells(pbmcx,idents =0)
+pbmcx=subset(pbmc,idents=c("GD11-2"))
+Idents(pbmcx)="assignment"
+maternal8=WhichCells(pbmcx,idents =0)
+pbmcx=subset(pbmc,idents=c("GD13"))
+Idents(pbmcx)="assignment"
+maternal9=WhichCells(pbmcx,idents =0)
+pbmcx=subset(pbmc,idents=c("GD15-1"))
+Idents(pbmcx)="assignment"
+maternal10=WhichCells(pbmcx,idents =0)
+pbmcx=subset(pbmc,idents=c("GD15-2"))
+Idents(pbmcx)="assignment"
+maternal11=WhichCells(pbmcx,idents =1)
+pbmcx=subset(pbmc,idents=c("GD17-1"))
+Idents(pbmcx)="assignment"
+maternal12=WhichCells(pbmcx,idents =1)
+pbmcx=subset(pbmc,idents=c("GD17-2"))
+Idents(pbmcx)="assignment"
+maternal13=WhichCells(pbmcx,idents =0)
+pbmcx=subset(pbmc,idents=c("GD20-1"))
+Idents(pbmcx)="assignment"
+maternal14=WhichCells(pbmcx,idents =1)
+pbmcx=subset(pbmc,idents=c("GD20-2"))
+Idents(pbmcx)="assignment"
+maternal15=WhichCells(pbmcx,idents =1)
+pbmcx=subset(pbmc,idents=c("GD23"))
+Idents(pbmcx)="assignment"
+maternal16=WhichCells(pbmcx,idents =0)
+Idents(pbmc)="sample"
+pbmcx=subset(pbmc,idents=c("GD26"))
+Idents(pbmcx)="assignment"
+maternal17=WhichCells(pbmcx,idents =0)
+
+
+Idents(pbmc)="sample"
+Unknown=WhichCells(pbmc,idents=c("GD8-2"))
+
+Idents(pbmc)="assignment"
+Idents(pbmc, cells = c(Unknown)) <- "Unknown"
+Idents(pbmc, cells = WhichCells(pbmc,idents = c("0/1","1/0"))) <- "Doublet"
+
+Idents(pbmc, cells =c(maternal1)) <- "Maternal"
+
+Idents(pbmc, cells =c(maternal3)) <- "Maternal"
+Idents(pbmc, cells =c(maternal4)) <- "Maternal"
+Idents(pbmc, cells =c(maternal5)) <- "Maternal"
+Idents(pbmc, cells =c(maternal6)) <- "Maternal"
+Idents(pbmc, cells =c(maternal7)) <- "Maternal"
+Idents(pbmc, cells =c(maternal8)) <- "Maternal"
+Idents(pbmc, cells =c(maternal9)) <- "Maternal"
+Idents(pbmc, cells =c(maternal10)) <- "Maternal"
+Idents(pbmc, cells =c(maternal11)) <- "Maternal"
+Idents(pbmc, cells =c(maternal12)) <- "Maternal"
+Idents(pbmc, cells =c(maternal13)) <- "Maternal"
+Idents(pbmc, cells =c(maternal14)) <- "Maternal"
+Idents(pbmc, cells =c(maternal15)) <- "Maternal"
+Idents(pbmc, cells =c(maternal16)) <- "Maternal"
+Idents(pbmc, cells =c(maternal17)) <- "Maternal"
+
+
+Idents(pbmc, cells = WhichCells(pbmc,idents = c("0","1"))) <- "Fetal"
+pbmc$origin2=Idents(pbmc);pbmc
+
+table(pbmc$origin2)
+
+Idents(pbmc)="origin2"
+options(repr.plot.width=18, repr.plot.height=14)
+DimPlot(pbmc,label = T,label.size = 8,split.by=c('sample'),ncol=5,raster=FALSE)& theme(axis.text=element_blank(),axis.ticks=element_blank(),legend.key.height=unit(0.4,"inch"),legend.text=element_text(size=20,face="plain"),text=element_text(size=20,face="plain"),strip.text=element_text(size=20,face="bold"))
+
+options(repr.plot.width=18, repr.plot.height=14)
+DimPlot(pbmc, split.by='sample',ncol = 5,label=F,label.size = 8,cols=c('grey','grey','red','grey'),raster=FALSE) & theme(legend.key.height=unit(0.5,"inch"),axis.text=element_blank(),axis.ticks=element_blank(),text=element_text(size=20),legend.text=element_text(size=20,face = "plain"))
+
+
+
+
