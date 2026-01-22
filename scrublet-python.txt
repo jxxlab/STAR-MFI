@@ -1,0 +1,167 @@
+%matplotlib inline
+import scrublet as scr
+import scipy.io
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import os
+os.chdir("/sdc/xxjiang/rapl") 
+os.getcwd() 
+
+
+
+counts_matrix=pd.read_csv('GD8-1.csv', header=0,index_col=0).T
+scrub = scr.Scrublet(counts_matrix, expected_doublet_rate=0.042)
+doublet_scores, predicted_doublets = scrub.scrub_doublets(min_counts=2, min_cells=3,   min_gene_variability_pctl=85, n_prin_comps=30)
+scrub.plot_histogram()
+
+predicted_doublets 
+
+predicted_doublets=scrub.call_doublets(threshold=0.10)
+scrub.plot_histogram()
+naive_doublet_rate =scrub.predicted_doublets_.sum() / float(len(counts_matrix))
+doub2=scrub.predicted_doublets_
+naive_doublet_rate
+
+doub = {'':counts_matrix.T.columns.values,
+        'doublet2': doub2,
+        'score': scrub.doublet_scores_obs_}
+doub=pd.DataFrame(doub)
+
+doub.head()
+
+doub = {'':counts_matrix.T.columns.values,
+        
+        'doublet2': doub2,
+        'score': scrub.doublet_scores_obs_}
+doub=pd.DataFrame(doub)
+doub.to_csv('GD8-1-scrublet.csv',sep = ',',index=False) 
+
+meta=pd.read_csv('GD8-1D.csv', header=0,index_col=0)
+doub = {
+        'doublet2': doub2,
+        'score': scrub.doublet_scores_obs_}
+doub=pd.DataFrame(doub);doub=doub.set_index(meta.index)
+doub=meta.join(doub);doub.to_csv('GD8-1-meta.csv')  
+doub.head()#doub.info()
+
+
+
+
+
+counts_matrix=pd.read_csv('GD8-2.csv', header=0,index_col=0).T
+scrub = scr.Scrublet(counts_matrix, expected_doublet_rate=0.066)
+doublet_scores, predicted_doublets = scrub.scrub_doublets(min_counts=2, min_cells=3,   min_gene_variability_pctl=85, n_prin_comps=30)
+scrub.plot_histogram()
+
+naive_doublet_rate
+
+predicted_doublets=scrub.call_doublets(threshold=0.18)
+scrub.plot_histogram()
+naive_doublet_rate =scrub.predicted_doublets_.sum() / float(len(counts_matrix))
+doub2=scrub.predicted_doublets_
+naive_doublet_rate
+
+naive_doublet_rate =scrub.predicted_doublets_.sum() / float(len(counts_matrix))
+naive_doublet_rate
+
+doub = {'':counts_matrix.T.columns.values,
+        'doublet2': doub2,
+        'score': scrub.doublet_scores_obs_}
+doub=pd.DataFrame(doub)
+
+doub.head()
+
+doub = {'':counts_matrix.T.columns.values,
+        
+        'doublet2': doub2,
+        'score': scrub.doublet_scores_obs_}
+doub=pd.DataFrame(doub)
+doub.to_csv('GD8-2-scrublet.csv',sep = ',',index=False) 
+
+meta=pd.read_csv('GD8-2D.csv', header=0,index_col=0)
+doub = {
+        'doublet2': doub2,
+        'score': scrub.doublet_scores_obs_}
+doub=pd.DataFrame(doub);doub=doub.set_index(meta.index)
+doub=meta.join(doub);doub.to_csv('GD8-2-meta.csv')  
+doub.head()#doub.info()
+
+
+
+
+
+counts_matrix=pd.read_csv('GD9-1.csv', header=0,index_col=0).T
+scrub = scr.Scrublet(counts_matrix, expected_doublet_rate=0.055)
+doublet_scores, predicted_doublets = scrub.scrub_doublets(min_counts=2, min_cells=3,   min_gene_variability_pctl=85, n_prin_comps=30)
+scrub.plot_histogram()
+
+predicted_doublets=scrub.call_doublets(threshold=0.14)
+scrub.plot_histogram()
+naive_doublet_rate =scrub.predicted_doublets_.sum() / float(len(counts_matrix))
+doub2=scrub.predicted_doublets_
+naive_doublet_rate
+
+naive_doublet_rate =scrub.predicted_doublets_.sum() / float(len(counts_matrix))
+naive_doublet_rate
+
+doub = {'':counts_matrix.T.columns.values,
+        'doublet2': doub2,
+        'score': scrub.doublet_scores_obs_}
+doub=pd.DataFrame(doub)
+
+doub.head()
+
+doub = {'':counts_matrix.T.columns.values,
+        
+        'doublet2': doub2,
+        'score': scrub.doublet_scores_obs_}
+doub=pd.DataFrame(doub)
+doub.to_csv('GD9-1-scrublet.csv',sep = ',',index=False) 
+
+meta=pd.read_csv('GD9-1D.csv', header=0,index_col=0)
+doub = {
+        'doublet2': doub2,
+        'score': scrub.doublet_scores_obs_}
+doub=pd.DataFrame(doub);doub=doub.set_index(meta.index)
+doub=meta.join(doub);doub.to_csv('GD9-1-meta.csv')  
+doub.head()#doub.info()
+
+
+
+
+counts_matrix=pd.read_csv('GD9-2.csv', header=0,index_col=0).T
+scrub = scr.Scrublet(counts_matrix, expected_doublet_rate=0.069)
+doublet_scores, predicted_doublets = scrub.scrub_doublets(min_counts=2, min_cells=3,   min_gene_variability_pctl=85, n_prin_comps=30)
+scrub.plot_histogram()
+
+predicted_doublets=scrub.call_doublets(threshold=0.12)
+scrub.plot_histogram()
+naive_doublet_rate =scrub.predicted_doublets_.sum() / float(len(counts_matrix))
+doub2=scrub.predicted_doublets_
+naive_doublet_rate
+
+naive_doublet_rate =scrub.predicted_doublets_.sum() / float(len(counts_matrix))
+naive_doublet_rate
+
+doub = {'':counts_matrix.T.columns.values,
+        'doublet2': doub2,
+        'score': scrub.doublet_scores_obs_}
+doub=pd.DataFrame(doub)
+
+doub.head()
+
+doub = {'':counts_matrix.T.columns.values,
+        
+        'doublet2': doub2,
+        'score': scrub.doublet_scores_obs_}
+doub=pd.DataFrame(doub)
+doub.to_csv('GD9-2-scrublet.csv',sep = ',',index=False) 
+
+meta=pd.read_csv('GD9-2D.csv', header=0,index_col=0)
+doub = {
+        'doublet2': doub2,
+        'score': scrub.doublet_scores_obs_}
+doub=pd.DataFrame(doub);doub=doub.set_index(meta.index)
+doub=meta.join(doub);doub.to_csv('GD9-2-meta.csv')  
+doub.head()#doub.info()
