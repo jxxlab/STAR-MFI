@@ -1,0 +1,181 @@
+export PATH=/home/xxjiang/soft/cellranger-8.0.1:$PATH
+cellranger count --id=GD8M  --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD8CB722M   --create-bam=true  --nosecondary  
+cellranger count --id=GD8M2    --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD8CB722M2      --create-bam=true  --nosecondary 
+cellranger count --id=GD9    --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD9BZ451      --create-bam=true  --nosecondary
+cellranger count --id=GD9M  --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD9CB722M   --create-bam=true  --nosecondary
+cellranger count --id=GD10    --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD10BZ451      --create-bam=true  --nosecondary    
+cellranger count --id=GD10s    --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD10BZ451s      --create-bam=true  --nosecondary    
+cellranger count --id=GD11  --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD11BZ451  --create-bam=true  --nosecondary  
+cellranger count --id=GD11s  --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD11BZ451s  --create-bam=true  --nosecondary 
+
+cellranger count --id=GD13    --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD13BZ451      --create-bam=true  --nosecondary
+
+cellranger count --id=GD15    --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD15BZ451      --create-bam=true  --nosecondary  
+cellranger count --id=GD15s    --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD15BZ451s      --create-bam=true  --nosecondary
+cellranger count    --id=GD17  --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD17BY608  --create-bam=true  --nosecondary 
+cellranger count    --id=GD17s  --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD17BZ451s  --create-bam=true  --nosecondary  
+cellranger count --id=GD20    --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD20BZ451      --create-bam=true  --nosecondary
+
+cellranger count --id=GD20s    --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD20BZ451s      --create-bam=true  --nosecondary
+
+cellranger count --id=GD23    --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD23BZ451      --create-bam=true  --nosecondary
+cd  /sdc/xxjiang/rapl/ncbref
+
+cellranger count --id=GD26    --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD23BZ451      --create-bam=true  --nosecondary
+cd  /sdc/xxjiang/rapl/ncbref
+
+
+
+cellranger count --id=GD8Mn    --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD8CB722Mn      --create-bam=true  --nosecondary   
+cellranger count --id=GD9Mn    --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD9CB722Mn      --create-bam=true  --nosecondary   
+cellranger count  --id=GD9n  --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD9BZ451n  --create-bam=true  --nosecondary
+
+cellranger count --id=GD10n    --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD10BZ451n      --create-bam=true  --nosecondary
+cellranger count --id=GD10n-2x  --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD10BZ451n2x  --create-bam=true  --nosecondary 
+cellranger count --id=GD11n    --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD11BZ451n      --create-bam=true  --nosecondary
+
+cellranger count --id=GD13n    --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD13BZ451n      --create-bam=true  --nosecondary
+cellranger count --id=GD13n-2    --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD13BZ451n2      --create-bam=true  --nosecondary
+cellranger count --id=GD15n    --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD15BZ451n      --create-bam=true  --nosecondary
+cellranger count --id=GD15n-2    --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD15BZ451n2      --create-bam=true  --nosecondary
+
+cellranger count   --id=GD17n  --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD17BZ451n  --create-bam=true  --nosecondary 
+cellranger count --id=GD17n-2    --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD17BZ451n2      --create-bam=true  --nosecondary 
+cellranger count --id=GD20n    --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD20BZ451n      --create-bam=true  --nosecondary
+cellranger count --id=GD20n-2    --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD20BZ451n2      --create-bam=true  --nosecondary
+
+cellranger count --id=GD23n    --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD23BZ451n      --create-bam=true  --nosecondary
+cellranger count --id=GD23n-2    --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD23BZ451n2      --create-bam=true  --nosecondary
+ 
+cellranger count --id=GD26n  --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD26BZ451n  --create-bam=true  --nosecondary  
+
+cellranger count --id=GD26n-2    --transcriptome=/home/xxjiang/soft/OryCun2_NCB   --fastqs=/sdc/xxjiang/rapl/fq  --sample=GD26BZ451n2      --create-bam=true  --nosecondary
+
+
+
+
+
+
+
+cd  /sdc/xxjiang/rapl/ncbref
+cat SCR_library.csv
+cellranger aggr --id=SCR \
+                  --csv=/sdc/xxjiang/rapl/ncbref/SCR_library.csv \
+                  --normalize=mapped  --nosecondary
+cat SNR_library.csv
+cellranger aggr --id=SNR \
+                  --csv=/sdc/xxjiang/rapl/ncbref/SNR_library.csv \
+                  --normalize=mapped  --nosecondary
+
+cd  /sdc/xxjiang/rapl/ncbref
+$ cat GD_library.csv
+$ cellranger aggr --id=SNR2 \
+                  --csv=/sdc/xxjiang/rapl/ncbref/SNR2_library.csv \
+                  --normalize=mapped  --nosecondary
+
+
+
+
+
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD8M/outs/possorted_genome_bam.bam -b  GD8M/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD8M -k 2  >  GD8M-soup-log.txt
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD8M2/outs/possorted_genome_bam.bam -b  GD8M2/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD8M2 -k 2  >  GD8M2-soup-log.txt 
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD9/outs/possorted_genome_bam.bam -b  GD9/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD9 -k 2  >  GD9-soup-log.txt 
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD9M/outs/possorted_genome_bam.bam -b  GD9M/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD9M -k 2  >  GD9M-soup-log.txt
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD10/outs/possorted_genome_bam.bam -b  GD10/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD10 -k 2  >  GD10-soup-log.txt 
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD10s/outs/possorted_genome_bam.bam -b  GD10s/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD10s -k 2  >  GD10s-soup-log.txt 
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD11/outs/possorted_genome_bam.bam -b  GD11/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD11 -k 2  >  GD11-soup-log.txt
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD11s/outs/possorted_genome_bam.bam -b  GD11s/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD11s -k 2  >  GD11s-soup-log.txt 
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD13/outs/possorted_genome_bam.bam -b  GD13/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD13 -k 2  >  GD13-soup-log.txt 
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD15/outs/possorted_genome_bam.bam -b  GD15/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD15 -k 2  >  GD15-soup-log.txt 
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD15s/outs/possorted_genome_bam.bam -b  GD15s/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD15s -k 2  >  GD15s-soup-log.txt 
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD17/outs/possorted_genome_bam.bam -b  GD17/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD17 -k 2  >  GD17-soup-log.txt 
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD17s/outs/possorted_genome_bam.bam -b  GD17s/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD17s -k 2  >  GD17s-soup-log.txt 
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD20/outs/possorted_genome_bam.bam -b  GD20/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD20 -k 2  >  GD20-soup-log.txt 
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD20s/outs/possorted_genome_bam.bam -b  GD20s/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD20s -k 2  >  GD20s-soup-log.txt 
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD23/outs/possorted_genome_bam.bam -b  GD23/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD23 -k 2  >  GD23-soup-log.txt
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD26/outs/possorted_genome_bam.bam -b  GD26/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD26 -k 2  >  GD26-soup-log.txt 
+
+
+
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD8Mn/outs/possorted_genome_bam.bam -b  GD8Mn/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD8Mn -k 2  >  GD8Mn-soup-log.txt 
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD9Mn/outs/possorted_genome_bam.bam -b  GD9Mn/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD9Mn -k 2  >  GD9Mn-soup-log.txt 
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD9n/outs/possorted_genome_bam.bam -b  GD9n/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD9n -k 2  >  GD9n-soup-log.txt
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD10n/outs/possorted_genome_bam.bam -b  GD10n/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD10n -k 2  >  GD10n-soup-log.txt 
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD10n-2x/outs/possorted_genome_bam.bam -b  GD10n-2x/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD10n-2x -k 2  >  GD10n-2x-soup-log.txt
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD11n/outs/possorted_genome_bam.bam -b  GD11n/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD11n -k 2  >  GD11n-soup-log.txt 
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD13n/outs/possorted_genome_bam.bam -b  GD13n/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD13n -k 2  >  GD13n-soup-log.txt 
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD13n-2/outs/possorted_genome_bam.bam -b  GD13n-2/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD13n-2 -k 2  >  GD13n-2-soup-log.txt 
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD15n/outs/possorted_genome_bam.bam -b  GD15n/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD15n -k 2  >  GD15n-soup-log.txt 
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD15n-2/outs/possorted_genome_bam.bam -b  GD15n-2/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD15n-2 -k 2  >  GD15n-2-soup-log.txt
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD17n/outs/possorted_genome_bam.bam -b  GD17n/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD17n -k 2  >  GD17n-soup-log.txt
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD17n-2/outs/possorted_genome_bam.bam -b  GD17n-2/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD17n-2 -k 2  >  GD17n-2-soup-log.txt 
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD20n/outs/possorted_genome_bam.bam -b  GD20n/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD20n -k 2  >  GD20n-soup-log.txt 
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD20n-2/outs/possorted_genome_bam.bam -b  GD20n-2/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD20n-2 -k 2  >  GD20n-2-soup-log.txt 
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD23n/outs/possorted_genome_bam.bam -b  GD23n/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD23n -k 2  >  GD23n-soup-log.txt
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD23n-2/outs/possorted_genome_bam.bam -b  GD23n-2/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD23n-2 -k 2  >  GD23n-2-soup-log.txt
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD26n/outs/possorted_genome_bam.bam -b  GD26n/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD26n -k 2  >  GD26n-soup-log.txt
+
+singularity exec /home/xxjiang/soft/souporcell_v2.5.sif souporcell_pipeline.py -i  GD26n-2/outs/possorted_genome_bam.bam -b  GD26n-2/outs/filtered_feature_bc_matrix/barcodes.tsv.gz  -f /home/xxjiang/soft/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa  -t 20 -o soup/GD26n-2 -k 2  >  GD26n-2-soup-log.txt
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

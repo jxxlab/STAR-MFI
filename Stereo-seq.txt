@@ -1,0 +1,80 @@
+export PATH=/home/xxjiang/soft/saw-8.1.1/bin:$PATH
+
+cd /sdc/xxjiang/rapl-sp/out
+
+ls
+
+saw count \
+    --id=GD11 \
+    --sn=Y00985CD \
+    --omics=transcriptomics \
+    --kit-version="Stereo-seq T FF V1.3" \
+    --sequencing-type="PE75_50+100" \
+    --chip-mask=/sdc/xxjiang/rapl-sp/image/Y00985CD.barcodeToPos.h5 \
+    --organism=rabbit \
+    --tissue=uterus \
+    --fastqs=/sdc/xxjiang/rapl-sp/Raw/11_5-3-1 \
+    --reference=/home/xxjiang/soft/OryCun2.0_NCB_SAW \
+    --image-tar=/sdc/xxjiang/rapl-sp/image/Y00985CD_SC_20241031_111201_4.0.0.tar.gz \
+    --threads-num 20
+
+
+saw count \
+    --id=GD9B \
+    --sn=Y00979K6 \
+    --omics=transcriptomics \
+    --kit-version="Stereo-seq T FF V1.3" \
+    --sequencing-type="PE75_50+100" \
+    --chip-mask=/sdc/xxjiang/rapl-sp/image/rp953b/Y00979K6.barcodeToPos.h5 \
+    --organism=rabbit \
+    --tissue=uterus \
+    --fastqs=/sdc/xxjiang/rapl-sp/Raw/rp9-5-3b \
+    --reference=/home/xxjiang/soft/OryCun2.0_NCB_SAW \
+    --image-tar=/sdc/xxjiang/rapl-sp/image/rp953b/Y00979K6_SC_20241028_114555_4.0.0.tar.gz \
+    --threads-num 20
+
+saw count \
+    --id=GD17 \
+    --sn=Y00986MA \
+    --omics=transcriptomics \
+    --kit-version="Stereo-seq T FF V1.3" \
+    --sequencing-type="PE75_50+100" \
+    --chip-mask=/sdc/xxjiang/rapl-sp/image/A17522/Y00986MA.barcodeToPos.h5 \
+    --organism=rabbit \
+    --tissue=uterus \
+    --fastqs=/sdc/xxjiang/rapl-sp/Raw/17_5-2-2 \
+    --reference=/home/xxjiang/soft/OryCun2.0_NCB_SAW \
+    --image-tar=/sdc/xxjiang/rapl-sp/image/A17522/Y00986MA_SC_20241028_142521_4.0.0.tar.gz \
+    --threads-num 20
+
+
+saw count \
+    --id=GD20 \
+    --sn=Y00981E3 \
+    --omics=transcriptomics \
+    --kit-version="Stereo-seq T FF V1.3" \
+    --sequencing-type="PE75_50+100" \
+    --chip-mask=/sdc/xxjiang/rapl-sp/image/A20531/Y00981E3.barcodeToPos.h5 \
+    --organism=rabbit \
+    --tissue=uterus \
+    --fastqs=/sdc/xxjiang/rapl-sp/Raw/20_5-3-1 \
+    --reference=/home/xxjiang/soft/OryCun2.0_NCB_SAW \
+    --image-tar=/sdc/xxjiang/rapl-sp/image/A20531/Y00981E3_SC_20241028_112633_4.0.0.tar.gz \
+    --threads-num 20
+
+saw count \
+    --id=GD26 \
+    --sn=Y00985C2 \
+    --omics=transcriptomics \
+    --kit-version="Stereo-seq T FF V1.3" \
+    --sequencing-type="PE75_50+100" \
+    --chip-mask=/sdc/xxjiang/rapl-sp/image/A26521/Y00985C2.barcodeToPos.h5 \
+    --organism=rabbit \
+    --tissue=uterus \
+    --fastqs=/sdc/xxjiang/rapl-sp/Raw/26_5-2-1 \
+    --reference=/home/xxjiang/soft/OryCun2.0_NCB_SAW \
+    --image-tar=/sdc/xxjiang/rapl-sp/image/A26521/Y00985C2_SC_20241111_173831_4.0.0.tar.gz \
+    --threads-num 20
+
+
+
