@@ -1,0 +1,357 @@
+getwd();library(Seurat);suppressMessages(library("patchwork"));suppressMessages(library(harmony)); library("RColorBrewer");suppressMessages(library(dplyr));library(ggplot2)
+
+M1=read.table("/sdc/xxjiang/rapl/ncbref/soup/GD8M/clusters.tsv",check.names = FALSE, header=TRUE,row.names=1)
+M2=read.table("/sdc/xxjiang/rapl/ncbref/soup/GD8M2/clusters.tsv",check.names = FALSE, header=TRUE,row.names=1)
+M3=read.table("/sdc/xxjiang/rapl/ncbref/soup/GD9/clusters.tsv",check.names = FALSE, header=TRUE,row.names=1)
+M4=read.table("/sdc/xxjiang/rapl/ncbref/soup/GD9M/clusters.tsv",check.names = FALSE, header=TRUE,row.names=1)
+M5=read.table("/sdc/xxjiang/rapl/ncbref/soup/GD10/clusters.tsv",check.names = FALSE, header=TRUE,row.names=1)
+M6=read.table("/sdc/xxjiang/rapl/ncbref/soup/GD10s/clusters.tsv",check.names = FALSE, header=TRUE,row.names=1)
+M7=read.table("/sdc/xxjiang/rapl/ncbref/soup/GD11/clusters.tsv",check.names = FALSE, header=TRUE,row.names=1)
+M8=read.table("/sdc/xxjiang/rapl/ncbref/soup/GD11s/clusters.tsv",check.names = FALSE, header=TRUE,row.names=1)
+M9=read.table("/sdc/xxjiang/rapl/ncbref/soup/GD13/clusters.tsv",check.names = FALSE, header=TRUE,row.names=1)
+M10=read.table("/sdc/xxjiang/rapl/ncbref/soup/GD15/clusters.tsv",check.names = FALSE, header=TRUE,row.names=1)
+M11=read.table("/sdc/xxjiang/rapl/ncbref/soup/GD15s/clusters.tsv",check.names = FALSE, header=TRUE,row.names=1)
+M12=read.table("/sdc/xxjiang/rapl/ncbref/soup/GD17/clusters.tsv",check.names = FALSE, header=TRUE,row.names=1)
+M13=read.table("/sdc/xxjiang/rapl/ncbref/soup/GD17s/clusters.tsv",check.names = FALSE, header=TRUE,row.names=1)
+M14=read.table("/sdc/xxjiang/rapl/ncbref/soup/GD20/clusters.tsv",check.names = FALSE, header=TRUE,row.names=1)
+M15=read.table("/sdc/xxjiang/rapl/ncbref/soup/GD20s/clusters.tsv",check.names = FALSE, header=TRUE,row.names=1)
+M16=read.table("/sdc/xxjiang/rapl/ncbref/soup/GD23/clusters.tsv",check.names = FALSE, header=TRUE,row.names=1)
+M17=read.table("/sdc/xxjiang/rapl/ncbref/soup/GD26/clusters.tsv",check.names = FALSE, header=TRUE,row.names=1)
+
+head(M1);tail(M1);length(M1)
+head(M2);tail(M2);length(M2)
+
+pbmc1=M1
+pbmc2=M2
+pbmc3=M3
+pbmc4=M4
+pbmc5=M5
+pbmc6=M6
+pbmc7=M7
+pbmc8=M8
+pbmc9=M9
+pbmc10=M10
+pbmc11=M11
+pbmc12=M12
+pbmc13=M13
+pbmc14=M14
+pbmc15=M15
+pbmc16=M16
+pbmc17=M17
+
+M1=sub( "-\\d+$","-1" ,rownames(M1));head(M1);tail(M1);length(M1)
+M2=sub( "-\\d+$","-2" ,rownames(M2));head(M2);tail(M2);length(M2)
+M3=sub( "-\\d+$","-3" ,rownames(M3));head(M3);tail(M3);length(M3)
+M4=sub( "-\\d+$","-4" ,rownames(M4));head(M4);tail(M4);length(M4)
+M5=sub( "-\\d+$","-5" ,rownames(M5));head(M5);tail(M5);length(M5)
+M6=sub( "-\\d+$","-6" ,rownames(M6));head(M6);tail(M6);length(M6)
+M7=sub( "-\\d+$","-7" ,rownames(M7));head(M7);tail(M7);length(M7)
+M8=sub( "-\\d+$","-8" ,rownames(M8));head(M8);tail(M8);length(M8)
+M9=sub( "-\\d+$","-9" ,rownames(M9));head(M9);tail(M9);length(M9)
+M10=sub( "-\\d+$","-10" ,rownames(M10));head(M10);tail(M10);length(M10)
+M11=sub( "-\\d+$","-11" ,rownames(M11));head(M11);tail(M11);length(M11)
+M12=sub( "-\\d+$","-12" ,rownames(M12));head(M12);tail(M12);length(M12)
+M13=sub( "-\\d+$","-13" ,rownames(M13));head(M13);tail(M13);length(M13)
+M14=sub( "-\\d+$","-14" ,rownames(M14));head(M14);tail(M14);length(M14)
+M15=sub( "-\\d+$","-15" ,rownames(M15));head(M15);tail(M15);length(M15)
+M16=sub( "-\\d+$","-16" ,rownames(M16));head(M16);tail(M16);length(M16)
+M17=sub( "-\\d+$","-17" ,rownames(M17));head(M17);tail(M17);length(M17)
+
+rownames(pbmc1)=M1
+rownames(pbmc2)=M2
+rownames(pbmc3)=M3
+rownames(pbmc4)=M4
+rownames(pbmc5)=M5
+rownames(pbmc6)=M6
+rownames(pbmc7)=M7
+rownames(pbmc8)=M8
+rownames(pbmc9)=M9
+rownames(pbmc10)=M10
+rownames(pbmc11)=M11
+rownames(pbmc12)=M12
+rownames(pbmc13)=M13
+rownames(pbmc14)=M14
+rownames(pbmc15)=M15
+rownames(pbmc16)=M16
+rownames(pbmc17)=M17
+
+write.csv(pbmc1, "/sdc/xxjiang/rapl/ncbref/soup/cluster/GD8M_clusters.tsv")
+write.csv(pbmc2, "/sdc/xxjiang/rapl/ncbref/soup/cluster/GD8M2_clusters.tsv")
+write.csv(pbmc3, "/sdc/xxjiang/rapl/ncbref/soup/cluster/GD9_clusters.tsv")
+write.csv(pbmc4, "/sdc/xxjiang/rapl/ncbref/soup/cluster/GD9M_clusters.tsv")
+write.csv(pbmc5, "/sdc/xxjiang/rapl/ncbref/soup/cluster/GD10_clusters.tsv")
+write.csv(pbmc6, "/sdc/xxjiang/rapl/ncbref/soup/cluster/GD10s_clusters.tsv")
+write.csv(pbmc7, "/sdc/xxjiang/rapl/ncbref/soup/cluster/GD11_clusters.tsv")
+write.csv(pbmc8, "/sdc/xxjiang/rapl/ncbref/soup/cluster/GD11s_clusters.tsv")
+write.csv(pbmc9, "/sdc/xxjiang/rapl/ncbref/soup/cluster/GD13_clusters.tsv")
+write.csv(pbmc10, "/sdc/xxjiang/rapl/ncbref/soup/cluster/GD15_clusters.tsv")
+write.csv(pbmc11, "/sdc/xxjiang/rapl/ncbref/soup/cluster/GD15s_clusters.tsv")
+write.csv(pbmc12, "/sdc/xxjiang/rapl/ncbref/soup/cluster/GD17_clusters.tsv")
+write.csv(pbmc13, "/sdc/xxjiang/rapl/ncbref/soup/cluster/GD17s_clusters.tsv")
+write.csv(pbmc14, "/sdc/xxjiang/rapl/ncbref/soup/cluster/GD20_clusters.tsv")
+write.csv(pbmc15, "/sdc/xxjiang/rapl/ncbref/soup/cluster/GD20s_clusters.tsv")
+write.csv(pbmc16, "/sdc/xxjiang/rapl/ncbref/soup/cluster/GD23_clusters.tsv")
+write.csv(pbmc17, "/sdc/xxjiang/rapl/ncbref/soup/cluster/GD26_clusters.tsv")
+
+PBMC <- Read10X( data.dir = "/sdc/xxjiang/rapl/ncbref/SCR/outs/count/filtered_feature_bc_matrix" );dim(PBMC)
+pbmc <- CreateSeuratObject(counts = PBMC, names.field = 2,names.delim = "-", project = "Rabbit",min.cells = 3)
+pbmc
+pbmc2=pbmc
+table(Idents(pbmc))
+M1=subset(pbmc,idents =1)$RNA@counts
+M2=subset(pbmc,idents =2)$RNA@counts
+M3=subset(pbmc,idents =3)$RNA@counts
+M4=subset(pbmc,idents =4)$RNA@counts
+M5=subset(pbmc,idents =5)$RNA@counts
+M6=subset(pbmc,idents =6)$RNA@counts
+M7=subset(pbmc,idents =7)$RNA@counts
+M8=subset(pbmc,idents =8)$RNA@counts
+M9=subset(pbmc,idents =9)$RNA@counts
+M10=subset(pbmc,idents =10)$RNA@counts
+M11=subset(pbmc,idents =11)$RNA@counts
+M12=subset(pbmc,idents =12)$RNA@counts
+M13=subset(pbmc,idents =13)$RNA@counts
+M14=subset(pbmc,idents =14)$RNA@counts
+M15=subset(pbmc,idents =15)$RNA@counts
+M16=subset(pbmc,idents =16)$RNA@counts
+M17=subset(pbmc,idents =17)$RNA@counts
+
+meta=read.csv("ncbref/soup/cluster/GD8Mn_clusters.tsv",check.names = FALSE, header=TRUE,row.names=1); M1<- CreateSeuratObject(M1, meta.data =meta, project = "GD8M")
+meta=read.csv("ncbref/soup/cluster/GD9Mn_clusters.tsv",check.names = FALSE, header=TRUE,row.names=1); M2<- CreateSeuratObject(M2, meta.data =meta, project = "GD8M2")
+meta=read.csv("ncbref/soup/cluster/GD10n_clusters.tsv",check.names = FALSE, header=TRUE,row.names=1); M3<- CreateSeuratObject(M3, meta.data =meta, project = "GD9")
+meta=read.csv("ncbref/soup/cluster/GD10n-2_clusters.tsv",check.names = FALSE, header=TRUE,row.names=1); M4<- CreateSeuratObject(M4, meta.data =meta, project = "GD9M")
+meta=read.csv("ncbref/soup/cluster/GD11n_clusters.tsv",check.names = FALSE, header=TRUE,row.names=1); M5<- CreateSeuratObject(M5, meta.data =meta, project = "GD10")
+meta=read.csv("ncbref/soup/cluster/GD10s_clusters.tsv",check.names = FALSE, header=TRUE,row.names=1); M6<- CreateSeuratObject(M6, meta.data =meta, project = "GD10s")
+meta=read.csv("ncbref/soup/cluster/GD11_clusters.tsv",check.names = FALSE, header=TRUE,row.names=1); M7<- CreateSeuratObject(M7, meta.data =meta, project = "GD11")
+meta=read.csv("ncbref/soup/cluster/GD11s_clusters.tsv",check.names = FALSE, header=TRUE,row.names=1); M8<- CreateSeuratObject(M8, meta.data =meta, project = "GD11s")
+meta=read.csv("ncbref/soup/cluster/GD13_clusters.tsv",check.names = FALSE, header=TRUE,row.names=1); M9<- CreateSeuratObject(M9, meta.data =meta, project = "GD13")
+meta=read.csv("ncbref/soup/cluster/GD15_clusters.tsv",check.names = FALSE, header=TRUE,row.names=1); M10<- CreateSeuratObject(M10, meta.data =meta, project = "GD15")
+meta=read.csv("ncbref/soup/cluster/GD15s_clusters.tsv",check.names = FALSE, header=TRUE,row.names=1); M11<- CreateSeuratObject(M11, meta.data =meta, project = "GD15s")
+meta=read.csv("ncbref/soup/cluster/GD17_clusters.tsv",check.names = FALSE, header=TRUE,row.names=1); M12<- CreateSeuratObject(M12, meta.data =meta, project = "GD17")
+meta=read.csv("ncbref/soup/cluster/GD17s_clusters.tsv",check.names = FALSE, header=TRUE,row.names=1); M13<- CreateSeuratObject(M13, meta.data =meta, project = "GD17s")
+meta=read.csv("ncbref/soup/cluster/GD20_clusters.tsv",check.names = FALSE, header=TRUE,row.names=1); M14<- CreateSeuratObject(M14, meta.data =meta, project = "GD20")
+meta=read.csv("ncbref/soup/cluster/GD20s_clusters.tsv",check.names = FALSE, header=TRUE,row.names=1); M15<- CreateSeuratObject(M15, meta.data =meta, project = "GD20s")
+meta=read.csv("ncbref/soup/cluster/GD23_clusters.tsv",check.names = FALSE, header=TRUE,row.names=1); M16<- CreateSeuratObject(M16, meta.data =meta, project = "GD23")
+meta=read.csv("ncbref/soup/cluster/GD26_clusters.tsv",check.names = FALSE, header=TRUE,row.names=1); M17<- CreateSeuratObject(M17, meta.data =meta, project = "GD26")
+
+head(M1)
+pbmc <- merge(x =M1, y = c(M2,M3,M4,M5,M6,M7,M8,M9,M10,M11,M12,M13,M14,M15,M16,M17), 
+              add.cell.ids = c('GD8M','GD8M2',
+                               'GD9','GD9M',
+                               'GD10','GD10s',
+                               'GD11','GD11s','GD13',
+                               'GD15','GD15s',
+                               'GD17', 'GD17s',
+                               'GD20','GD20s','GD23','GD26'), project = "RA");     
+pbmc
+pbmc_soup=pbmc
+table(Idents(pbmc_soup));pbmc_soup
+
+write.csv(pbmc@meta.data, "/sdc/xxjiang/rapl/ncbref/soup/cluster/soupsc_clusters.csv")
+
+pbmc <- CreateSeuratObject(pbmc$RNA@counts, meta.data = pbmc@meta.data);pbmc
+table(Idents(pbmc))
+
+Idents(pbmc, cells = WhichCells(pbmc,idents = "GD26")) <- "17"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "GD23")) <- "16"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "GD20s")) <- "15"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "GD20")) <- "14"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "GD17s")) <- "13"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "GD17")) <- "12"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "GD15s")) <- "11"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "GD15")) <- "10"
+
+Idents(pbmc, cells = WhichCells(pbmc,idents = "GD13")) <- "9"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "GD11s")) <- "8"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "GD11")) <- "7"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "GD10s")) <- "6"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "GD10")) <- "5"
+
+Idents(pbmc, cells = WhichCells(pbmc,idents = "GD9M")) <- "4"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "GD9")) <- "3"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "GD8M2")) <- "2"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "GD8M")) <- "1"
+pbmc$orig=Idents(pbmc)
+
+Idents(pbmc)="orig"
+table(Idents(pbmc))
+head(colnames(pbmc))
+tail(colnames(pbmc))
+
+Idents(pbmc)="orig"
+new.cluster.ids <- c('GD8-1','GD8-2',
+                     'GD9-1','GD9-2', 
+                     'GD10-1','GD10-2',
+                     'GD11-1','GD11-2','GD13',
+                     'GD15-1','GD15-2',
+                     'GD17-1','GD17-2',
+                     'GD20-1','GD20-2','GD23','GD26')
+names(x = new.cluster.ids) <- levels(x = pbmc)
+pbmc <- RenameIdents(object = pbmc, new.cluster.ids, reorder.numeric = T)
+pbmc$sample=Idents(pbmc)
+table(Idents(pbmc))
+
+Idents(pbmc)="orig"
+new.cluster.ids <- c('GD8','GD8',
+                     'GD9','GD9',
+                     'GD10','GD10',
+                     'GD11', 'GD11','GD13',
+                     'GD15','GD15',
+                     'GD17','GD17',
+                     'GD20','GD20','GD23','GD26')
+names(x = new.cluster.ids) <- levels(x = pbmc)
+pbmc <- RenameIdents(object = pbmc, new.cluster.ids, reorder.numeric = T)
+pbmc$stage=Idents(pbmc)
+table(Idents(pbmc))
+
+ MT.genes <- c("ND1","ND2","ND3","ND4","ND4L","ND5","ND6","CYTB","COX1","COX2","COX3","ATP6","ATP8")
+ MT_m <- match(MT.genes, rownames(pbmc@assays$RNA))
+ MT.genes <- rownames(pbmc@assays$RNA)[MT_m]
+ MT.genes <- MT.genes[!is.na(MT.genes)]
+pbmc[["percent.mt"]]<-PercentageFeatureSet(pbmc, features=MT.genes)
+
+options(repr.plot.width=12, repr.plot.height=8)
+ VlnPlot(pbmc,pt.size=0.01, features = c("nFeature_RNA","percent.mt"), group.by = "sample",raster=FALSE,ncol=1) +  theme(axis.title=element_blank(),axis.text=element_text(size=16),plot.title=element_text(size=16))+NoLegend()
+
+pbmc2=pbmc
+pbmc<- subset(pbmc2, subset = nFeature_RNA > 500 & percent.mt < 20);pbmc
+
+options(repr.plot.width=12, repr.plot.height=8)
+ VlnPlot(pbmc,pt.size=0, group.by = "sample",features = c("nFeature_RNA","nCount_RNA"),ncol=1,raster=FALSE) & theme(axis.title=element_blank(),axis.text=element_text(size=16),plot.title=element_text(size=16))+NoLegend()
+
+meta=pbmc@meta.data[,c('orig.ident','nCount_RNA','nFeature_RNA','percent.mt','status','assignment','orig','sample','stage')]
+head(meta)
+pbmc <- CreateSeuratObject(pbmc$RNA@counts, meta.data = meta, min.cells = 3, project = "PL");pbmc
+pbmc <- NormalizeData(pbmc)
+pbmc <- FindVariableFeatures(pbmc, selection.method = 'mean.var.plot', mean.cutoff = c(0.0125, 5), dispersion.cutoff = c(0.5, Inf))
+length(VariableFeatures(pbmc))
+pbmc <- ScaleData(pbmc); pbmc <- RunPCA(pbmc,verbose = F)
+options(repr.plot.width=6, repr.plot.height=6)
+#DimPlot(pbmc, reduction = "pca")
+ElbowPlot(pbmc) 
+pbmc <- RunUMAP(pbmc, reduction = "pca", dims = 1:16,verbose=F)
+options(repr.plot.width=14, repr.plot.height=6)
+DimPlot(pbmc,label = T,label.size = 8,group.by=c('orig.ident','sample'),ncol=2)& theme(axis.text=element_blank(),axis.ticks=element_blank(),legend.key.height=unit(0.4,"inch"),legend.text=element_text(size=20,face="plain"),text=element_text(size=20,face="plain"))
+
+
+
+table(Idents(pbmc))
+Idents(pbmc)="orig"
+table(Idents(pbmc))
+
+
+write.csv(as.matrix(subset(pbmc,idents =1)$RNA@counts), "GD8-1.csv"); write.csv(subset(pbmc,idents =1)@meta.data, "GD8-1D.csv")
+write.csv(as.matrix(subset(pbmc,idents =2)$RNA@counts), "GD8-2.csv"); write.csv(subset(pbmc,idents =2)@meta.data, "GD8-2D.csv")
+write.csv(as.matrix(subset(pbmc,idents =3)$RNA@counts), "GD9-1.csv"); write.csv(subset(pbmc,idents =3)@meta.data, "GD9-1D.csv")
+write.csv(as.matrix(subset(pbmc,idents =4)$RNA@counts), "GD9-2.csv"); write.csv(subset(pbmc,idents =4)@meta.data, "GD9-2D.csv")
+write.csv(as.matrix(subset(pbmc,idents =5)$RNA@counts), "GD10-1.csv"); write.csv(subset(pbmc,idents =5)@meta.data, "GD10-1D.csv")
+write.csv(as.matrix(subset(pbmc,idents =6)$RNA@counts), "GD10-2.csv"); write.csv(subset(pbmc,idents =6)@meta.data, "GD10-2D.csv")
+write.csv(as.matrix(subset(pbmc,idents =7)$RNA@counts), "GD11-1.csv"); write.csv(subset(pbmc,idents =7)@meta.data, "GD11-1D.csv")
+write.csv(as.matrix(subset(pbmc,idents =8)$RNA@counts), "GD11-2.csv"); write.csv(subset(pbmc,idents =8)@meta.data, "GD11-2D.csv")
+write.csv(as.matrix(subset(pbmc,idents =9)$RNA@counts), "GD13.csv"); write.csv(subset(pbmc,idents =9)@meta.data, "GD13D.csv")
+write.csv(as.matrix(subset(pbmc,idents =10)$RNA@counts), "GD15-1.csv"); write.csv(subset(pbmc,idents =10)@meta.data, "GD15-1D.csv")
+write.csv(as.matrix(subset(pbmc,idents =11)$RNA@counts), "GD15-2.csv"); write.csv(subset(pbmc,idents =11)@meta.data, "GD15-2D.csv")
+write.csv(as.matrix(subset(pbmc,idents =12)$RNA@counts), "GD17-1.csv"); write.csv(subset(pbmc,idents =12)@meta.data, "GD17-1D.csv")
+write.csv(as.matrix(subset(pbmc,idents =13)$RNA@counts), "GD17-2.csv"); write.csv(subset(pbmc,idents =13)@meta.data, "GD17-2D.csv")
+write.csv(as.matrix(subset(pbmc,idents =14)$RNA@counts), "GD20-1.csv"); write.csv(subset(pbmc,idents =14)@meta.data, "GD20-1D.csv")
+write.csv(as.matrix(subset(pbmc,idents =15)$RNA@counts), "GD20-2.csv"); write.csv(subset(pbmc,idents =15)@meta.data, "GD20-2D.csv")
+write.csv(as.matrix(subset(pbmc,idents =16)$RNA@counts), "GD23.csv"); write.csv(subset(pbmc,idents =16)@meta.data, "GD23D.csv")
+write.csv(as.matrix(subset(pbmc,idents =17)$RNA@counts), "GD26.csv"); write.csv(subset(pbmc,idents =17)@meta.data, "GD26D.csv")
+
+
+meta=read.csv("orig-meta1.csv",check.names = FALSE, header=TRUE,row.names=1);  
+dim(meta);head(meta);pbmc;table(Idents(pbmc))
+
+
+
+pbmc <- CreateSeuratObject(pbmc$RNA@counts, meta.data = meta, min.cells = 3, 
+                           roject = "PL");
+
+pbmc <- NormalizeData(pbmc)
+pbmc <- FindVariableFeatures(pbmc, selection.method = 'mean.var.plot', mean.cutoff = c(0.0125, 5), dispersion.cutoff = c(0.5, Inf))
+length(VariableFeatures(pbmc))
+pbmc <- ScaleData(pbmc); pbmc <- RunPCA(pbmc,verbose = F)
+options(repr.plot.width=6, repr.plot.height=6)
+#DimPlot(pbmc, reduction = "pca")
+ElbowPlot(pbmc) 
+
+pbmc <- RunUMAP(pbmc, reduction = "pca", dims = 1:16,verbose=F)
+options(repr.plot.width=14, repr.plot.height=6)
+DimPlot(pbmc,label = T,label.size = 8,group.by=c('orig.ident','sample'),ncol=2)& theme(axis.text=element_blank(),axis.ticks=element_blank(),legend.key.height=unit(0.4,"inch"),legend.text=element_text(size=20,face="plain"),text=element_text(size=20,face="plain"))
+
+options(repr.plot.width=17, repr.plot.height=4)
+FeaturePlot(pbmc, c("nFeature_RNA","nCount_RNA","score","PTPRC"),raster=FALSE, min.cutoff = "q01", max.cutoff = "q90",ncol=4) & theme(axis.text=element_blank(),axis.ticks=element_blank(),axis.title=element_text(size=16),plot.title =element_text(face = "bold.italic"),legend.key.height=unit(0.4,'inch'))
+
+
+Idents(pbmc)='doublet2'
+options(repr.plot.width=7, repr.plot.height=6)
+DimPlot(pbmc,label = T,label.size = 8,ncol=2,raster=FALSE)& theme(axis.text=element_blank(),axis.ticks=element_blank(),legend.key.height=unit(0.3,"inch"),legend.text=element_text(size=20,face="plain"),text=element_text(size=20,face="plain"))
+
+Idents(pbmc)='origin2'
+options(repr.plot.width=7, repr.plot.height=6)
+DimPlot(pbmc,label = T,label.size = 8,ncol=2,raster=FALSE)& theme(axis.text=element_blank(),axis.ticks=element_blank(),legend.key.height=unit(0.3,"inch"),legend.text=element_text(size=20,face="plain"),text=element_text(size=20,face="plain"))
+
+
+pbmc2=pbmc
+
+Idents(pbmc2)='doublet2'
+pbmc=subset(pbmc2,idents='False',invert=F);pbmc
+
+Idents(pbmc)='origin2'
+pbmc=subset(pbmc,idents=c('Fetal','Maternal','Unknown'),invert=F);pbmc
+
+
+pbmc <- CreateSeuratObject(pbmc$RNA@counts, meta.data = pbmc@meta.data, min.cells = 3, project = "PL");pbmc
+pbmc <- NormalizeData(pbmc)
+pbmc <- FindVariableFeatures(pbmc, selection.method = 'mean.var.plot', mean.cutoff = c(0.0125, 5), dispersion.cutoff = c(0.5, Inf))
+length(VariableFeatures(pbmc))
+pbmc <- ScaleData(pbmc); pbmc <- RunPCA(pbmc,verbose = F)
+options(repr.plot.width=6, repr.plot.height=6)
+#DimPlot(pbmc, reduction = "pca")
+ElbowPlot(pbmc) 
+
+pbmc <- RunUMAP(pbmc, reduction = "pca", dims = 1:16,verbose=F)
+options(repr.plot.width=14, repr.plot.height=6)
+DimPlot(pbmc,label = T,label.size = 8,group.by=c('orig.ident','sample'),ncol=2,raster=FALSE)& theme(axis.text=element_blank(),axis.ticks=element_blank(),legend.key.height=unit(0.3,"inch"),legend.text=element_text(size=20,face="plain"),text=element_text(size=20,face="plain"))
+
+
+pbmc <- FindNeighbors(pbmc,  dims = 1:16)
+pbmc <- FindClusters(object = pbmc, algorithm = 1, resolution =0.3) 
+options(repr.plot.width=8, repr.plot.height=6)
+DimPlot(object = pbmc,label = T,label.size = 8)+ theme(legend.key.height=unit(0.35,"inch"),axis.text=element_blank(),axis.ticks=element_blank(),legend.text=element_text(size=20,face="plain"),text=element_text(size=20,face="plain"))
+
+
+options(repr.plot.width=8, repr.plot.height=6)
+pbmc <- ReorderIdent(pbmc, c("PC_1"), reorder.numeric = T,reverse=T)
+DimPlot(object = pbmc,label = T,label.size = 8)+ theme(legend.key.height=unit(0.4,"inch"),axis.text=element_blank(),axis.ticks=element_blank(),legend.text=element_text(size=20,face="plain"),text=element_text(size=20,face="plain"))
+
+
+Idents(pbmc, cells = WhichCells(pbmc,idents = "25")) <- "25"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "24")) <- "24"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "23")) <- "23"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "22")) <- "22"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "21")) <- "21"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "20")) <- "20"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "19")) <- "19"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "18")) <- "18"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "17")) <- "17"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "16")) <- "16"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "15")) <- "15"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "14")) <- "14"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "13")) <- "13"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "12")) <- "12"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "11")) <- "11"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "10")) <- "10"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "9")) <- "9"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "8")) <- "8"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "7")) <- "7"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "6")) <- "6"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "5")) <- "5"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "4")) <- "4"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "3")) <- "3"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "2")) <- "2"
+Idents(pbmc, cells = WhichCells(pbmc,idents = "1")) <- "1"
+pbmc$C25F=Idents(pbmc)
+table(Idents(pbmc))
+
+
