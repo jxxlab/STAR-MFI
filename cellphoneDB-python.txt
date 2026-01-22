@@ -1,0 +1,83 @@
+import pandas as pd
+import sys
+import os
+pd.set_option('display.max_columns', 100)
+# Define our base directory for the analysis
+os.chdir('/sdc/xxjiang/rapl/data/')
+import anndata2ri
+from rpy2.robjects import r
+from rpy2.robjects.conversion import localconverter
+# activate rpy2 env
+anndata2ri.activate()
+r('.libPaths()')
+
+r('library(Seurat);library(Matrix)')
+r('pbmc=readRDS("rapl76970-CDB.rds");Idents(pbmc) = pbmc$CX')
+r("DEGs = FindAllMarkers(pbmc, test.use = 'LR', verbose = F, only.pos = T, random.seed = 1,  logfc.threshold = 0.2, min.pct =0.1,return.thresh = 0.05)")
+
+r("fDEGs = subset(DEGs, p_val_adj < 0.05 & avg_log2FC > 0.1); fDEGs = fDEGs[, c('cluster', 'gene', 'p_val_adj', 'p_val', 'avg_log2FC', 'pct.1', 'pct.2')]") 
+r("write.table(fDEGs, file ='rapl76970-CDB-DEGs-CX.tsv', sep = '\t', quote = F, row.names = F)")
+
+! mkdir rapl76970-CDB-mtx
+
+r('library(Seurat);library(Matrix)')
+
+# Save normalised counts - NOT scaled!
+r("writeMM(pbmc@assays$RNA@data, file = 'rapl76970-CDB-mtx/matrix.mtx')") 
+# save gene and cell names
+r("write(rownames(pbmc@assays$RNA@data), file = 'rapl76970-CDB-mtx/features.tsv')") 
+r("write(colnames(pbmc@assays$RNA@data), file = 'rapl76970-CDB-mtx/barcodes.tsv')") 
+
+r("pbmc@meta.data$Cell = rownames(pbmc@meta.data);df = pbmc@meta.data[, c('Cell', 'CX')]") 
+r("write.table(df, file ='rapl76970-CDB-meta-CX.tsv', sep = '\t', quote = F, row.names = F)") 
+
+
+import pandas as pd
+import sys
+import os
+pd.set_option('display.max_columns', 100)
+os.chdir('/sdc/xxjiang/rapl/data')
+import anndata2ri
+from rpy2.robjects import r
+from rpy2.robjects.conversion import localconverter
+# activate rpy2 env
+anndata2ri.activate()
+print(sys.version)
+
+cpdb_file_path = '/sdb/xxjiang/soft/cpdb/v5.0.0/cellphonedb.zip'
+meta_file_path = 'rapl76970-CDB-meta-CX.tsv'
+counts_file_path = 'rapl76970-CDB-mtx'
+degs_file_path = 'rapl76970-CDB-DEGs-CX.tsv'
+out_path = 'rapl76970-CDB'
+
+from cellphonedb.src.core.methods import cpdb_degs_analysis_method
+
+cpdb_results = cpdb_degs_analysis_method.call(
+    cpdb_file_path = cpdb_file_path,                            
+    meta_file_path = meta_file_path,                           
+    counts_file_path = counts_file_path,                        
+    degs_file_path = degs_file_path,                            
+    counts_data = 'hgnc_symbol',                                
+    score_interactions = True,                                 
+    threshold = 0.1,                                          
+    result_precision = 3,                                      
+    separator = '|',                                         
+    debug = False,                                              
+    output_path = out_path,                                     
+    output_suffix = None,                                      
+    threads = 30
+    )
+
+list(cpdb_results.keys())
+
+cpdb_results['relevant_interactions'].head(2)
+
+cpdb_results['significant_means'].head(2)
+
+cpdb_results['means'].head(2)
+
+cpdb_results['deconvoluted'].head(2)
+
+cpdb_results['interaction_scores'].head(2)
+
+
