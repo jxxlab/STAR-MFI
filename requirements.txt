@@ -1,0 +1,46 @@
+if (!requireNamespace("BiocManager", quietly = TRUE))
+install.packages("BiocManager")
+BiocManager::version()    
+install.packages("remotes")
+options(timeout = 60000000000)
+x=c("Seurat","devtools",'R.utils',"pagoda2","colorRamps","tidyverse",'IRkernel','scattermore','argparser',    "msigdbr",'harmony', 'glmpca','qs2',"jackstraw",'arrow',
+    'flexmix', "factoextra", arulesViz","Hmisc","BDgraph","qgraph","psych",'Rfast2',"vembedr","magick",'irr')
+x[!x %in% rownames(installed.packages())]
+install.packages(x[!x %in% rownames(installed.packages())])
+
+
+install.packages("ipkg")
+ipkg::install_github("bnprks/BPCells/r")
+setRepositories(ind = 1:3, addURLs = c('https://satijalab.r-universe.dev', 'https://bnprks.r-universe.dev/'))
+x=c("BPCells", "presto", "glmGamPoi","ClusterGVis")
+x[!x %in% rownames(installed.packages())]
+install.packages(x[!x %in% rownames(installed.packages())])
+
+
+install.packages("TTR")
+install.packages("https://cran.r-project.org/src/contrib/Archive/smoother/smoother_1.3.tar.gz", repos = NULL, type = "source")
+BiocManager::version()
+x=c( "monocle", "destiny", "scRNAseq","celaref","SingleR", "clusterProfiler", 
+     "org.Mm.eg.db", "org.Hs.eg.db", "AnnotationHub", "ComplexHeatmap", 'BiocGenerics', 'DelayedArray', 'DelayedMatrixStats', 'limma',
+     'S4Vectors', 'SingleCellExperiment',  'SummarizedExperiment', 'batchelor', 'lme4',  'HDF5Array', "Cardinal", 'ggrastr',
+     "tximport","CoGAPS","scry","Nebulosa","schex","tricycle", "reactome.db", "ReactomePA","Cardinal","Mfuzz","scmap",
+     "impute", "pcaMethods", "globaltest", "GlobalAncova", "Rgraphviz", "preprocessCore",  "sva", "limma", "KEGGgraph", "siggenes","BiocParallel", "Rserve","crmn","MSnbase", "multtest","RBGL","fgsea","httr")
+x[!x %in% rownames(installed.packages())]
+BiocManager::install(x[!x %in% rownames(installed.packages())])
+
+
+
+options(timeout = 60000000000)
+options(download.file.method = "wget")
+options(download.file.method = "curl")
+devtools::install_github(c('satijalab/seurat-wrappers','satijalab/seurat-data','mojaveazure/seurat-disk',"mojaveazure/loomR",
+                           'cole-trapnell-lab/monocle3',"aertslab/SCopeLoomR","mkearney/rmd2jupyter",  #"velocyto-team/velocyto.R",
+                           "cailab-tamu/scTenifoldKnk","PaulingLiu/scibet","satijalab/azimuth","sqjin/CellChat","xzhoulab/SPARK",
+                           "dmcable/spacexr",))
+
+
+conda create -n scenic-velo-cpdbx python=3.10.6 ipykernel=6.15.1 tornado=6.1 typing_extensions=4.4.0 r-base=4.4.3 rpy2
+conda activate scenic-velo-cpdb
+pip install -i https://pypi.mirrors.ustc.edu.cn/simple  scvelo==0.2.5  scanpy==1.9.6  cellphonedb==5.0.0  MulticoreTSNE==0.1    matplotlib==3.6.0 plotnine==0.10.1   ktplotspy==0.2.1  anndata2ri   # xarray  adjustText  scvi-tools
+pip install  -i https://pypi.mirrors.ustc.edu.cn/simple  -r /home/soft/pyscenic121s-req.txt
+pip install pyscenic
