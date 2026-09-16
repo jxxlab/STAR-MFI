@@ -11,7 +11,6 @@ The analyses were performed using the following software environments:
 
 ## Operating system: 
 -Operating system: CentOS Linux 7 (Core)
--Linux kernel: 3.10.0-1160.108.1.e17.x86_64
 -R version: 4.1.3
 -Python version: 3.10.6
 
