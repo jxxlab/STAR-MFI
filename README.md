@@ -34,7 +34,6 @@ if (!requireNamespace("BiocManager", quietly = TRUE))
 install.packages("BiocManager")
 BiocManager::version()    
 install.packages("remotes")
-options(timeout = 60000000000)
 x=c("Seurat","devtools",'R.utils',"pagoda2","colorRamps","tidyverse",'IRkernel','scattermore','argparser',    "msigdbr",'harmony', 'glmpca','qs2',"jackstraw",'arrow',
     'flexmix', "factoextra", arulesViz","Hmisc","BDgraph","qgraph","psych",'Rfast2',"vembedr","magick",'irr')
 x[!x %in% rownames(installed.packages())]
@@ -46,7 +45,7 @@ options(download.file.method = "wget")
 options(download.file.method = "curl")
 devtools::install_github(c('satijalab/seurat-wrappers','satijalab/seurat-data','mojaveazure/seurat-disk',"mojaveazure/loomR",
                            'cole-trapnell-lab/monocle3',"aertslab/SCopeLoomR","mkearney/rmd2jupyter",  #"velocyto-team/velocyto.R",
-                           "cailab-tamu/scTenifoldKnk","PaulingLiu/scibet","satijalab/azimuth","sqjin/CellChat","xzhoulab/SPARK",
+                           "cailab-tamu/scTenifoldKnk","PaulingLiu/scibet","satijalab/azimuth","sqjin/CellChat",
                            "dmcable/spacexr",))
                            
 ## Install from install.packages
